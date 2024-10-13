@@ -1,0 +1,103 @@
+﻿<Page x:Class="OfficeForWork.Views.Pages.Admin.AdminMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OfficeForWork.Views.Pages.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1450"
+      Loaded="Page_Loaded"
+      Title="AdminMainPage">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="BtnAddClic" 
+                        Click="BtnAddClic_Click"
+                        Height="30"
+                        Width="150">Добавить</Button>
+                <Button x:Name="BtnDeleteClic" 
+                        Click="BtnDeleteClic_Click" 
+                        Width="150" 
+                        Height="30"
+                        Margin="20,0,20,0">Удалить</Button>
+                <TextBlock Text="Поиск:"
+                           FontSize="16"
+                           Margin="0,14,7,16"
+                           Height="20"/>
+                <TextBox x:Name="SearchTxb"
+                         Width="250"
+                         Height="30"
+                         FontSize="17"
+                         TextChanged="SearchTxb_TextChanged"/>
+                <Button Content="Назад"
+                        x:Name="ExitBtn"
+                        Click="ExitBtn_Click"
+                        Margin="10, 0"
+                        Width="120"
+                        Height="30"/>
+            </StackPanel>
+        </Grid>
+        <DataGrid Grid.Row="1" 
+                  x:Name="DataGridRegistration" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True" SelectionChanged="DataGridRegistration_SelectionChanged" >
+            <DataGrid.Columns>
+                <DataGridTextColumn 
+                    Header="Сотрудник" 
+                    Binding="{Binding NameMember}" 
+                    x:Name="xNameUser"
+                    Width="150"/>
+                <DataGridTextColumn 
+                    Header="Отдел" 
+                    Binding="{Binding Section.Name}" 
+                    Width="200"/>
+                <DataGridTextColumn 
+                    Header="Должность" 
+                    Binding="{Binding Position.Name}" 
+                    Width="120"/>
+                <!--<DataGridTextColumn 
+                    Header="Пояснение задачи" 
+                    Binding="{Binding Document.NameDocument}"
+                    x:Name="NameTask" 
+                    Width="150"/>-->
+                <DataGridTextColumn 
+                    Header="Дата создания"
+                    Binding="{Binding Document.DateCreation}"
+                    x:Name="TimeCreation" 
+                    Width="200"/>
+                <DataGridTextColumn 
+                    Header="Дата последнего изменения"
+                    Binding="{Binding Document.DataLastChange}"
+                    x:Name="TimeLastChange" 
+                    Width="200"/>
+                <DataGridTextColumn 
+                    Header="Описание"
+                    Binding="{Binding Document.DescriptionDocument}"
+                    x:Name="NameDescriptionDocument" 
+                    Width="150"/>
+                <DataGridTextColumn 
+                    Header="Завершен" 
+                    Binding="{Binding Document.Completed}"
+                    x:Name="checkBox"/>
+                <DataGridTextColumn 
+                    Header="Файл" 
+                    Width="150"
+                    Binding="{Binding Document.DocumentSave.DocumentDate}"
+                    x:Name="checkBox2"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEdit" Click="BtnEdit_Click">Редактировать</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
