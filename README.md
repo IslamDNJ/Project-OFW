@@ -10,6 +10,7 @@ The project is written using:
 3) SQL
 
 The framework was used to import the database from SSMS to Visual Studio ADO.NET
+
 Detailed instructions for deploying via the framework can be found in the folder README.docx
 
 --------------------------------------------------------------------------------------------------
@@ -26,4 +27,5 @@ Detailed instructions for deploying via the framework can be found in the folder
 3) SQL
 
 Для импорта БД из SSMS в Visual Studio использовался фреймворк ADO.NET
+
 Подробную инструкцию развертывания через фреймфворк можно найти в папке README.docx
